@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="text">Hello world</h1>
+    <input type="text" id="commentBox">
+    <button id="btn" disabled>Delete</button>
+</body>
+<script>
+    const commentBox = document.getElementById('commentBox');
+    const deleteBtn = document.getElementById('btn');
+
+    commentBox.addEventListener('keyup', function (event) {
+        const commentValue = event.target.value;
+        if (commentValue === 'delete') {
+            deleteBtn.removeAttribute('disabled');
+        }
+        else {
+            deleteBtn.setAttribute('disabled', true);
+        }
+    })
+
+    deleteBtn.addEventListener('click', function () {
+        const text = document.getElementById('text');
+        text.style.display = 'none';
+    })
+</script>
+
+</html>
